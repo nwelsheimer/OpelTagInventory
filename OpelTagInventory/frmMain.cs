@@ -15,7 +15,9 @@ namespace OpelTagInventory
     public frmMain()
     {
       InitializeComponent();
-      
+
+      //Creates any tables that don't already exist
+      functions.createDB();
     }
 
     private void exitToolStripMenuItem_Click(object sender, EventArgs e)

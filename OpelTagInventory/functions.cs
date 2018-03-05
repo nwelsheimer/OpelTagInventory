@@ -56,7 +56,7 @@ namespace OpelTagInventory
       {
         ConnectDB();
         con.Open();
-        cmd = con.CreateCommand();
+        //cmd = con.CreateCommand();
 
         SQLiteDataAdapter dap = new SQLiteDataAdapter(q, con);
         ds.Reset();
@@ -72,6 +72,21 @@ namespace OpelTagInventory
       }
 
       return ds;
+    }
+
+    public static void updateData(DataTable dt, string q)
+    {
+      ConnectDB();
+      con.Open();
+      SQLiteDataAdapter dap = new SQLiteDataAdapter(q, con);
+
+      SQLiteCommandBuilder build = new SQLiteCommandBuilder(dap);
+
+      dap.UpdateCommand = build.GetUpdateCommand();
+      dap.InsertCommand = build.GetInsertCommand();
+      dap.DeleteCommand = build.GetDeleteCommand();
+
+      dap.Update(dt);
     }
 
     public static bool createDB()

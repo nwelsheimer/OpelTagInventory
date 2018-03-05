@@ -12,6 +12,9 @@ namespace OpelTagInventory
 {
   public partial class frmSetup : Form
   {
+    DataSet items;
+    string itemQuery = "select itemDescription, itemDescription2 from item";
+
     public frmSetup()
     {
       InitializeComponent();
@@ -20,6 +23,9 @@ namespace OpelTagInventory
     private void frmSetup_Load(object sender, EventArgs e)
     {
       txtDBName.Text = Properties.Settings.Default.DBName;
+
+      items = functions.getData(itemQuery);
+      grdItems.DataSource = items.Tables[0];
     }
 
     private void btnSave_Click(object sender, EventArgs e)
@@ -36,6 +42,11 @@ namespace OpelTagInventory
     {
       functions.createDB();
       MessageBox.Show("Database successfully created.");
+    }
+
+    private void grdItems_AfterRowInsert(object sender, Infragistics.Win.UltraWinGrid.RowEventArgs e)
+    {
+      functions.updateData(items.Tables[0], itemQuery);
     }
   }
 }
