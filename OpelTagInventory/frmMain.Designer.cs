@@ -48,10 +48,10 @@
       this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.grdItems = new Infragistics.Win.UltraWinGrid.UltraGrid();
       this.panel1 = new System.Windows.Forms.Panel();
-      this.txtSearchItems = new System.Windows.Forms.TextBox();
-      this.txtSearchBins = new System.Windows.Forms.TextBox();
-      this.label4 = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
+      this.label4 = new System.Windows.Forms.Label();
+      this.txtSearchBins = new System.Windows.Forms.TextBox();
+      this.txtSearchItems = new System.Windows.Forms.TextBox();
       this.menuStrip1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.grdItems)).BeginInit();
       this.panel1.SuspendLayout();
@@ -64,8 +64,7 @@
             this.fileToolStripMenuItem});
       this.menuStrip1.Location = new System.Drawing.Point(0, 0);
       this.menuStrip1.Name = "menuStrip1";
-      this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-      this.menuStrip1.Size = new System.Drawing.Size(684, 24);
+      this.menuStrip1.Size = new System.Drawing.Size(1026, 33);
       this.menuStrip1.TabIndex = 0;
       this.menuStrip1.Text = "menuStrip1";
       // 
@@ -76,26 +75,26 @@
             this.setupToolStripMenuItem,
             this.exitToolStripMenuItem});
       this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-      this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 22);
+      this.fileToolStripMenuItem.Size = new System.Drawing.Size(50, 29);
       this.fileToolStripMenuItem.Text = "File";
       // 
       // reportsToolStripMenuItem
       // 
       this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-      this.reportsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+      this.reportsToolStripMenuItem.Size = new System.Drawing.Size(157, 30);
       this.reportsToolStripMenuItem.Text = "Reports";
       // 
       // setupToolStripMenuItem
       // 
       this.setupToolStripMenuItem.Name = "setupToolStripMenuItem";
-      this.setupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+      this.setupToolStripMenuItem.Size = new System.Drawing.Size(157, 30);
       this.setupToolStripMenuItem.Text = "Setup";
       this.setupToolStripMenuItem.Click += new System.EventHandler(this.setupToolStripMenuItem_Click);
       // 
       // exitToolStripMenuItem
       // 
       this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-      this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+      this.exitToolStripMenuItem.Size = new System.Drawing.Size(157, 30);
       this.exitToolStripMenuItem.Text = "Exit";
       this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
       // 
@@ -131,7 +130,6 @@
       this.grdItems.DisplayLayout.Override.AllowAddNew = Infragistics.Win.UltraWinGrid.AllowAddNew.TemplateOnTopWithTabRepeat;
       this.grdItems.DisplayLayout.Override.AllowDelete = Infragistics.Win.DefaultableBoolean.True;
       this.grdItems.DisplayLayout.Override.AllowRowFiltering = Infragistics.Win.DefaultableBoolean.True;
-      this.grdItems.DisplayLayout.Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.True;
       this.grdItems.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
       this.grdItems.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
       appearance7.BackColor = System.Drawing.SystemColors.Window;
@@ -158,19 +156,21 @@
       appearance11.BackColor = System.Drawing.SystemColors.Window;
       appearance11.BorderColor = System.Drawing.Color.Silver;
       this.grdItems.DisplayLayout.Override.RowAppearance = appearance11;
-      this.grdItems.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+      this.grdItems.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.True;
       appearance12.BackColor = System.Drawing.SystemColors.ControlLight;
       this.grdItems.DisplayLayout.Override.TemplateAddRowAppearance = appearance12;
       this.grdItems.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
       this.grdItems.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
       this.grdItems.Dock = System.Windows.Forms.DockStyle.Fill;
       this.grdItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.grdItems.Location = new System.Drawing.Point(0, 96);
-      this.grdItems.Margin = new System.Windows.Forms.Padding(2);
+      this.grdItems.Location = new System.Drawing.Point(0, 144);
       this.grdItems.Name = "grdItems";
-      this.grdItems.Size = new System.Drawing.Size(684, 425);
+      this.grdItems.Size = new System.Drawing.Size(1026, 658);
       this.grdItems.TabIndex = 1;
       this.grdItems.Text = "Items";
+      this.grdItems.InitializeTemplateAddRow += new Infragistics.Win.UltraWinGrid.InitializeTemplateAddRowEventHandler(this.grdItems_InitializeTemplateAddRow);
+      this.grdItems.AfterRowsDeleted += new System.EventHandler(this.grdItems_AfterRowsDeleted);
+      this.grdItems.AfterRowInsert += new Infragistics.Win.UltraWinGrid.RowEventHandler(this.grdItems_AfterRowInsert);
       // 
       // panel1
       // 
@@ -179,64 +179,69 @@
       this.panel1.Controls.Add(this.txtSearchBins);
       this.panel1.Controls.Add(this.txtSearchItems);
       this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-      this.panel1.Location = new System.Drawing.Point(0, 24);
+      this.panel1.Location = new System.Drawing.Point(0, 33);
+      this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
       this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(684, 72);
+      this.panel1.Size = new System.Drawing.Size(1026, 111);
       this.panel1.TabIndex = 2;
-      // 
-      // txtSearchItems
-      // 
-      this.txtSearchItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.txtSearchItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.txtSearchItems.Location = new System.Drawing.Point(12, 23);
-      this.txtSearchItems.Name = "txtSearchItems";
-      this.txtSearchItems.Size = new System.Drawing.Size(482, 44);
-      this.txtSearchItems.TabIndex = 0;
-      // 
-      // txtSearchBins
-      // 
-      this.txtSearchBins.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.txtSearchBins.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.txtSearchBins.Location = new System.Drawing.Point(500, 23);
-      this.txtSearchBins.Name = "txtSearchBins";
-      this.txtSearchBins.Size = new System.Drawing.Size(172, 44);
-      this.txtSearchBins.TabIndex = 1;
-      // 
-      // label4
-      // 
-      this.label4.AutoSize = true;
-      this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label4.Location = new System.Drawing.Point(12, 3);
-      this.label4.Name = "label4";
-      this.label4.Size = new System.Drawing.Size(102, 17);
-      this.label4.TabIndex = 2;
-      this.label4.Text = "Search Items";
-      this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
       // label1
       // 
       this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
       this.label1.AutoSize = true;
       this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label1.Location = new System.Drawing.Point(497, 3);
+      this.label1.Location = new System.Drawing.Point(746, 5);
+      this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
       this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(95, 17);
+      this.label1.Size = new System.Drawing.Size(129, 25);
       this.label1.TabIndex = 3;
       this.label1.Text = "Search Bins";
       this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
+      // label4
+      // 
+      this.label4.AutoSize = true;
+      this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label4.Location = new System.Drawing.Point(18, 5);
+      this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+      this.label4.Name = "label4";
+      this.label4.Size = new System.Drawing.Size(139, 25);
+      this.label4.TabIndex = 2;
+      this.label4.Text = "Search Items";
+      this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // txtSearchBins
+      // 
+      this.txtSearchBins.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.txtSearchBins.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.txtSearchBins.Location = new System.Drawing.Point(750, 35);
+      this.txtSearchBins.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+      this.txtSearchBins.Name = "txtSearchBins";
+      this.txtSearchBins.Size = new System.Drawing.Size(256, 62);
+      this.txtSearchBins.TabIndex = 1;
+      // 
+      // txtSearchItems
+      // 
+      this.txtSearchItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.txtSearchItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.txtSearchItems.Location = new System.Drawing.Point(18, 35);
+      this.txtSearchItems.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+      this.txtSearchItems.Name = "txtSearchItems";
+      this.txtSearchItems.Size = new System.Drawing.Size(721, 62);
+      this.txtSearchItems.TabIndex = 0;
+      this.txtSearchItems.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchItems_KeyPress);
+      // 
       // frmMain
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(684, 521);
+      this.ClientSize = new System.Drawing.Size(1026, 802);
       this.Controls.Add(this.grdItems);
       this.Controls.Add(this.panel1);
       this.Controls.Add(this.menuStrip1);
       this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.MainMenuStrip = this.menuStrip1;
-      this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.Name = "frmMain";
       this.Text = "Tag Inventory";
       this.menuStrip1.ResumeLayout(false);

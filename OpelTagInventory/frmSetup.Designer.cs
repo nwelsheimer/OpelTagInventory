@@ -68,8 +68,22 @@
       this.tabControl1 = new System.Windows.Forms.TabControl();
       this.tbItems = new System.Windows.Forms.TabPage();
       this.grdItems = new Infragistics.Win.UltraWinGrid.UltraGrid();
+      this.panel1 = new System.Windows.Forms.Panel();
+      this.lnImportItems = new System.Windows.Forms.LinkLabel();
+      this.lnExportItems = new System.Windows.Forms.LinkLabel();
+      this.label4 = new System.Windows.Forms.Label();
       this.tbSizes = new System.Windows.Forms.TabPage();
+      this.grdSize = new Infragistics.Win.UltraWinGrid.UltraGrid();
+      this.panel2 = new System.Windows.Forms.Panel();
+      this.lnImportSize = new System.Windows.Forms.LinkLabel();
+      this.lnExportSize = new System.Windows.Forms.LinkLabel();
+      this.label5 = new System.Windows.Forms.Label();
       this.tbLocation = new System.Windows.Forms.TabPage();
+      this.grdLocation = new Infragistics.Win.UltraWinGrid.UltraGrid();
+      this.panel3 = new System.Windows.Forms.Panel();
+      this.lnImportLoc = new System.Windows.Forms.LinkLabel();
+      this.lnExportLoc = new System.Windows.Forms.LinkLabel();
+      this.label6 = new System.Windows.Forms.Label();
       this.tbSettings = new System.Windows.Forms.TabPage();
       this.btnInit = new System.Windows.Forms.Button();
       this.btnSave = new System.Windows.Forms.Button();
@@ -77,31 +91,17 @@
       this.label2 = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
       this.txtDBName = new System.Windows.Forms.TextBox();
-      this.panel1 = new System.Windows.Forms.Panel();
-      this.label4 = new System.Windows.Forms.Label();
-      this.lnExportItems = new System.Windows.Forms.LinkLabel();
-      this.lnImportItems = new System.Windows.Forms.LinkLabel();
-      this.panel2 = new System.Windows.Forms.Panel();
-      this.lnImportSize = new System.Windows.Forms.LinkLabel();
-      this.lnExportSize = new System.Windows.Forms.LinkLabel();
-      this.label5 = new System.Windows.Forms.Label();
-      this.grdSize = new Infragistics.Win.UltraWinGrid.UltraGrid();
-      this.panel3 = new System.Windows.Forms.Panel();
-      this.lnImportLoc = new System.Windows.Forms.LinkLabel();
-      this.lnExportLoc = new System.Windows.Forms.LinkLabel();
-      this.label6 = new System.Windows.Forms.Label();
-      this.grdLocation = new Infragistics.Win.UltraWinGrid.UltraGrid();
       this.tabControl1.SuspendLayout();
       this.tbItems.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.grdItems)).BeginInit();
-      this.tbSizes.SuspendLayout();
-      this.tbLocation.SuspendLayout();
-      this.tbSettings.SuspendLayout();
       this.panel1.SuspendLayout();
-      this.panel2.SuspendLayout();
+      this.tbSizes.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.grdSize)).BeginInit();
-      this.panel3.SuspendLayout();
+      this.panel2.SuspendLayout();
+      this.tbLocation.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.grdLocation)).BeginInit();
+      this.panel3.SuspendLayout();
+      this.tbSettings.SuspendLayout();
       this.SuspendLayout();
       // 
       // tabControl1
@@ -113,22 +113,20 @@
       this.tabControl1.Controls.Add(this.tbSizes);
       this.tabControl1.Controls.Add(this.tbLocation);
       this.tabControl1.Controls.Add(this.tbSettings);
-      this.tabControl1.Location = new System.Drawing.Point(8, 25);
-      this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tabControl1.Location = new System.Drawing.Point(12, 38);
       this.tabControl1.Name = "tabControl1";
       this.tabControl1.SelectedIndex = 0;
-      this.tabControl1.Size = new System.Drawing.Size(567, 382);
+      this.tabControl1.Size = new System.Drawing.Size(850, 588);
       this.tabControl1.TabIndex = 0;
       // 
       // tbItems
       // 
       this.tbItems.Controls.Add(this.grdItems);
       this.tbItems.Controls.Add(this.panel1);
-      this.tbItems.Location = new System.Drawing.Point(4, 22);
-      this.tbItems.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tbItems.Location = new System.Drawing.Point(4, 29);
       this.tbItems.Name = "tbItems";
-      this.tbItems.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.tbItems.Size = new System.Drawing.Size(559, 356);
+      this.tbItems.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+      this.tbItems.Size = new System.Drawing.Size(842, 555);
       this.tbItems.TabIndex = 0;
       this.tbItems.Text = "Items";
       this.tbItems.UseVisualStyleBackColor = true;
@@ -192,17 +190,16 @@
       appearance11.BackColor = System.Drawing.SystemColors.Window;
       appearance11.BorderColor = System.Drawing.Color.Silver;
       this.grdItems.DisplayLayout.Override.RowAppearance = appearance11;
-      this.grdItems.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+      this.grdItems.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.True;
       appearance12.BackColor = System.Drawing.SystemColors.ControlLight;
       this.grdItems.DisplayLayout.Override.TemplateAddRowAppearance = appearance12;
       this.grdItems.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
       this.grdItems.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
       this.grdItems.Dock = System.Windows.Forms.DockStyle.Fill;
       this.grdItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.grdItems.Location = new System.Drawing.Point(2, 28);
-      this.grdItems.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.grdItems.Location = new System.Drawing.Point(3, 43);
       this.grdItems.Name = "grdItems";
-      this.grdItems.Size = new System.Drawing.Size(555, 326);
+      this.grdItems.Size = new System.Drawing.Size(836, 509);
       this.grdItems.TabIndex = 0;
       this.grdItems.Text = "Items";
       this.grdItems.AfterRowsDeleted += new System.EventHandler(this.grdItems_AfterRowsDeleted);
@@ -210,152 +207,17 @@
       this.grdItems.AfterRowUpdate += new Infragistics.Win.UltraWinGrid.RowEventHandler(this.grdItems_AfterRowUpdate);
       this.grdItems.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grdItems_KeyDown);
       // 
-      // tbSizes
-      // 
-      this.tbSizes.Controls.Add(this.grdSize);
-      this.tbSizes.Controls.Add(this.panel2);
-      this.tbSizes.Location = new System.Drawing.Point(4, 22);
-      this.tbSizes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.tbSizes.Name = "tbSizes";
-      this.tbSizes.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.tbSizes.Size = new System.Drawing.Size(559, 356);
-      this.tbSizes.TabIndex = 1;
-      this.tbSizes.Text = "Size/Type";
-      this.tbSizes.UseVisualStyleBackColor = true;
-      // 
-      // tbLocation
-      // 
-      this.tbLocation.Controls.Add(this.grdLocation);
-      this.tbLocation.Controls.Add(this.panel3);
-      this.tbLocation.Location = new System.Drawing.Point(4, 22);
-      this.tbLocation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.tbLocation.Name = "tbLocation";
-      this.tbLocation.Padding = new System.Windows.Forms.Padding(2);
-      this.tbLocation.Size = new System.Drawing.Size(559, 356);
-      this.tbLocation.TabIndex = 2;
-      this.tbLocation.Text = "Locations";
-      this.tbLocation.UseVisualStyleBackColor = true;
-      // 
-      // tbSettings
-      // 
-      this.tbSettings.Controls.Add(this.btnInit);
-      this.tbSettings.Controls.Add(this.btnSave);
-      this.tbSettings.Controls.Add(this.label3);
-      this.tbSettings.Controls.Add(this.label2);
-      this.tbSettings.Controls.Add(this.label1);
-      this.tbSettings.Controls.Add(this.txtDBName);
-      this.tbSettings.Location = new System.Drawing.Point(4, 22);
-      this.tbSettings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.tbSettings.Name = "tbSettings";
-      this.tbSettings.Size = new System.Drawing.Size(559, 356);
-      this.tbSettings.TabIndex = 3;
-      this.tbSettings.Text = "System Settings";
-      this.tbSettings.UseVisualStyleBackColor = true;
-      // 
-      // btnInit
-      // 
-      this.btnInit.Location = new System.Drawing.Point(7, 199);
-      this.btnInit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.btnInit.Name = "btnInit";
-      this.btnInit.Size = new System.Drawing.Size(70, 34);
-      this.btnInit.TabIndex = 5;
-      this.btnInit.Text = "Initialize DB";
-      this.btnInit.UseVisualStyleBackColor = true;
-      this.btnInit.Click += new System.EventHandler(this.btnInit_Click);
-      // 
-      // btnSave
-      // 
-      this.btnSave.Location = new System.Drawing.Point(145, 199);
-      this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.btnSave.Name = "btnSave";
-      this.btnSave.Size = new System.Drawing.Size(70, 34);
-      this.btnSave.TabIndex = 4;
-      this.btnSave.Text = "Save Settings";
-      this.btnSave.UseVisualStyleBackColor = true;
-      this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-      // 
-      // label3
-      // 
-      this.label3.AutoSize = true;
-      this.label3.Location = new System.Drawing.Point(3, 80);
-      this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-      this.label3.Name = "label3";
-      this.label3.Size = new System.Drawing.Size(87, 13);
-      this.label3.TabIndex = 3;
-      this.label3.Text = "Database Name:";
-      // 
-      // label2
-      // 
-      this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label2.ForeColor = System.Drawing.Color.Red;
-      this.label2.Location = new System.Drawing.Point(2, 34);
-      this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-      this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(558, 19);
-      this.label2.TabIndex = 2;
-      this.label2.Text = "WARNING: MODIFYING THESE SETTINGS INCORRECTLY COULD POTENTIALLY CAUSE DATA LOSS!";
-      this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      // 
-      // label1
-      // 
-      this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label1.Location = new System.Drawing.Point(2, 3);
-      this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-      this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(558, 31);
-      this.label1.TabIndex = 1;
-      this.label1.Text = "System Settings";
-      this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      // 
-      // txtDBName
-      // 
-      this.txtDBName.Location = new System.Drawing.Point(93, 78);
-      this.txtDBName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.txtDBName.Name = "txtDBName";
-      this.txtDBName.Size = new System.Drawing.Size(124, 20);
-      this.txtDBName.TabIndex = 0;
-      // 
       // panel1
       // 
       this.panel1.Controls.Add(this.lnImportItems);
       this.panel1.Controls.Add(this.lnExportItems);
       this.panel1.Controls.Add(this.label4);
       this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-      this.panel1.Location = new System.Drawing.Point(2, 2);
+      this.panel1.Location = new System.Drawing.Point(3, 3);
+      this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
       this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(555, 26);
+      this.panel1.Size = new System.Drawing.Size(836, 40);
       this.panel1.TabIndex = 1;
-      // 
-      // label4
-      // 
-      this.label4.AutoSize = true;
-      this.label4.Dock = System.Windows.Forms.DockStyle.Left;
-      this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label4.Location = new System.Drawing.Point(0, 0);
-      this.label4.Name = "label4";
-      this.label4.Size = new System.Drawing.Size(152, 17);
-      this.label4.TabIndex = 0;
-      this.label4.Text = "Add / Remove Items";
-      this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      // 
-      // lnExportItems
-      // 
-      this.lnExportItems.AutoSize = true;
-      this.lnExportItems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.lnExportItems.Dock = System.Windows.Forms.DockStyle.Right;
-      this.lnExportItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lnExportItems.Location = new System.Drawing.Point(495, 0);
-      this.lnExportItems.Name = "lnExportItems";
-      this.lnExportItems.Padding = new System.Windows.Forms.Padding(2);
-      this.lnExportItems.Size = new System.Drawing.Size(60, 23);
-      this.lnExportItems.TabIndex = 1;
-      this.lnExportItems.TabStop = true;
-      this.lnExportItems.Text = "Export";
-      this.lnExportItems.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
       // lnImportItems
       // 
@@ -363,67 +225,56 @@
       this.lnImportItems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.lnImportItems.Dock = System.Windows.Forms.DockStyle.Right;
       this.lnImportItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lnImportItems.Location = new System.Drawing.Point(436, 0);
+      this.lnImportItems.Location = new System.Drawing.Point(674, 0);
+      this.lnImportItems.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
       this.lnImportItems.Name = "lnImportItems";
-      this.lnImportItems.Padding = new System.Windows.Forms.Padding(2);
-      this.lnImportItems.Size = new System.Drawing.Size(59, 23);
+      this.lnImportItems.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+      this.lnImportItems.Size = new System.Drawing.Size(80, 33);
       this.lnImportItems.TabIndex = 2;
       this.lnImportItems.TabStop = true;
       this.lnImportItems.Text = "Import";
       this.lnImportItems.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
-      // panel2
+      // lnExportItems
       // 
-      this.panel2.Controls.Add(this.lnImportSize);
-      this.panel2.Controls.Add(this.lnExportSize);
-      this.panel2.Controls.Add(this.label5);
-      this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-      this.panel2.Location = new System.Drawing.Point(2, 2);
-      this.panel2.Name = "panel2";
-      this.panel2.Size = new System.Drawing.Size(555, 26);
-      this.panel2.TabIndex = 2;
+      this.lnExportItems.AutoSize = true;
+      this.lnExportItems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.lnExportItems.Dock = System.Windows.Forms.DockStyle.Right;
+      this.lnExportItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lnExportItems.Location = new System.Drawing.Point(754, 0);
+      this.lnExportItems.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+      this.lnExportItems.Name = "lnExportItems";
+      this.lnExportItems.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+      this.lnExportItems.Size = new System.Drawing.Size(82, 33);
+      this.lnExportItems.TabIndex = 1;
+      this.lnExportItems.TabStop = true;
+      this.lnExportItems.Text = "Export";
+      this.lnExportItems.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
-      // lnImportSize
+      // label4
       // 
-      this.lnImportSize.AutoSize = true;
-      this.lnImportSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.lnImportSize.Dock = System.Windows.Forms.DockStyle.Right;
-      this.lnImportSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lnImportSize.Location = new System.Drawing.Point(436, 0);
-      this.lnImportSize.Name = "lnImportSize";
-      this.lnImportSize.Padding = new System.Windows.Forms.Padding(2);
-      this.lnImportSize.Size = new System.Drawing.Size(59, 23);
-      this.lnImportSize.TabIndex = 2;
-      this.lnImportSize.TabStop = true;
-      this.lnImportSize.Text = "Import";
-      this.lnImportSize.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.label4.AutoSize = true;
+      this.label4.Dock = System.Windows.Forms.DockStyle.Left;
+      this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label4.Location = new System.Drawing.Point(0, 0);
+      this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+      this.label4.Name = "label4";
+      this.label4.Size = new System.Drawing.Size(206, 25);
+      this.label4.TabIndex = 0;
+      this.label4.Text = "Add / Remove Items";
+      this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
-      // lnExportSize
+      // tbSizes
       // 
-      this.lnExportSize.AutoSize = true;
-      this.lnExportSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.lnExportSize.Dock = System.Windows.Forms.DockStyle.Right;
-      this.lnExportSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lnExportSize.Location = new System.Drawing.Point(495, 0);
-      this.lnExportSize.Name = "lnExportSize";
-      this.lnExportSize.Padding = new System.Windows.Forms.Padding(2);
-      this.lnExportSize.Size = new System.Drawing.Size(60, 23);
-      this.lnExportSize.TabIndex = 1;
-      this.lnExportSize.TabStop = true;
-      this.lnExportSize.Text = "Export";
-      this.lnExportSize.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      // 
-      // label5
-      // 
-      this.label5.AutoSize = true;
-      this.label5.Dock = System.Windows.Forms.DockStyle.Left;
-      this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label5.Location = new System.Drawing.Point(0, 0);
-      this.label5.Name = "label5";
-      this.label5.Size = new System.Drawing.Size(191, 17);
-      this.label5.TabIndex = 0;
-      this.label5.Text = "Add / Remove Tag Types";
-      this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.tbSizes.Controls.Add(this.grdSize);
+      this.tbSizes.Controls.Add(this.panel2);
+      this.tbSizes.Location = new System.Drawing.Point(4, 29);
+      this.tbSizes.Name = "tbSizes";
+      this.tbSizes.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+      this.tbSizes.Size = new System.Drawing.Size(842, 555);
+      this.tbSizes.TabIndex = 1;
+      this.tbSizes.Text = "Size/Type";
+      this.tbSizes.UseVisualStyleBackColor = true;
       // 
       // grdSize
       // 
@@ -484,17 +335,16 @@
       appearance23.BackColor = System.Drawing.SystemColors.Window;
       appearance23.BorderColor = System.Drawing.Color.Silver;
       this.grdSize.DisplayLayout.Override.RowAppearance = appearance23;
-      this.grdSize.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+      this.grdSize.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.True;
       appearance24.BackColor = System.Drawing.SystemColors.ControlLight;
       this.grdSize.DisplayLayout.Override.TemplateAddRowAppearance = appearance24;
       this.grdSize.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
       this.grdSize.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
       this.grdSize.Dock = System.Windows.Forms.DockStyle.Fill;
       this.grdSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.grdSize.Location = new System.Drawing.Point(2, 28);
-      this.grdSize.Margin = new System.Windows.Forms.Padding(2);
+      this.grdSize.Location = new System.Drawing.Point(3, 43);
       this.grdSize.Name = "grdSize";
-      this.grdSize.Size = new System.Drawing.Size(555, 326);
+      this.grdSize.Size = new System.Drawing.Size(836, 509);
       this.grdSize.TabIndex = 3;
       this.grdSize.Text = "Sizes";
       this.grdSize.AfterRowsDeleted += new System.EventHandler(this.grdSize_AfterRowsDeleted);
@@ -502,58 +352,74 @@
       this.grdSize.AfterRowUpdate += new Infragistics.Win.UltraWinGrid.RowEventHandler(this.grdSize_AfterRowUpdate);
       this.grdSize.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grdSize_KeyDown);
       // 
-      // panel3
+      // panel2
       // 
-      this.panel3.Controls.Add(this.lnImportLoc);
-      this.panel3.Controls.Add(this.lnExportLoc);
-      this.panel3.Controls.Add(this.label6);
-      this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-      this.panel3.Location = new System.Drawing.Point(2, 2);
-      this.panel3.Name = "panel3";
-      this.panel3.Size = new System.Drawing.Size(555, 26);
-      this.panel3.TabIndex = 3;
+      this.panel2.Controls.Add(this.lnImportSize);
+      this.panel2.Controls.Add(this.lnExportSize);
+      this.panel2.Controls.Add(this.label5);
+      this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+      this.panel2.Location = new System.Drawing.Point(3, 3);
+      this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+      this.panel2.Name = "panel2";
+      this.panel2.Size = new System.Drawing.Size(836, 40);
+      this.panel2.TabIndex = 2;
       // 
-      // lnImportLoc
+      // lnImportSize
       // 
-      this.lnImportLoc.AutoSize = true;
-      this.lnImportLoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.lnImportLoc.Dock = System.Windows.Forms.DockStyle.Right;
-      this.lnImportLoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lnImportLoc.Location = new System.Drawing.Point(436, 0);
-      this.lnImportLoc.Name = "lnImportLoc";
-      this.lnImportLoc.Padding = new System.Windows.Forms.Padding(2);
-      this.lnImportLoc.Size = new System.Drawing.Size(59, 23);
-      this.lnImportLoc.TabIndex = 2;
-      this.lnImportLoc.TabStop = true;
-      this.lnImportLoc.Text = "Import";
-      this.lnImportLoc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.lnImportSize.AutoSize = true;
+      this.lnImportSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.lnImportSize.Dock = System.Windows.Forms.DockStyle.Right;
+      this.lnImportSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lnImportSize.Location = new System.Drawing.Point(674, 0);
+      this.lnImportSize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+      this.lnImportSize.Name = "lnImportSize";
+      this.lnImportSize.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+      this.lnImportSize.Size = new System.Drawing.Size(80, 33);
+      this.lnImportSize.TabIndex = 2;
+      this.lnImportSize.TabStop = true;
+      this.lnImportSize.Text = "Import";
+      this.lnImportSize.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
-      // lnExportLoc
+      // lnExportSize
       // 
-      this.lnExportLoc.AutoSize = true;
-      this.lnExportLoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.lnExportLoc.Dock = System.Windows.Forms.DockStyle.Right;
-      this.lnExportLoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lnExportLoc.Location = new System.Drawing.Point(495, 0);
-      this.lnExportLoc.Name = "lnExportLoc";
-      this.lnExportLoc.Padding = new System.Windows.Forms.Padding(2);
-      this.lnExportLoc.Size = new System.Drawing.Size(60, 23);
-      this.lnExportLoc.TabIndex = 1;
-      this.lnExportLoc.TabStop = true;
-      this.lnExportLoc.Text = "Export";
-      this.lnExportLoc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.lnExportSize.AutoSize = true;
+      this.lnExportSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.lnExportSize.Dock = System.Windows.Forms.DockStyle.Right;
+      this.lnExportSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lnExportSize.Location = new System.Drawing.Point(754, 0);
+      this.lnExportSize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+      this.lnExportSize.Name = "lnExportSize";
+      this.lnExportSize.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+      this.lnExportSize.Size = new System.Drawing.Size(82, 33);
+      this.lnExportSize.TabIndex = 1;
+      this.lnExportSize.TabStop = true;
+      this.lnExportSize.Text = "Export";
+      this.lnExportSize.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
-      // label6
+      // label5
       // 
-      this.label6.AutoSize = true;
-      this.label6.Dock = System.Windows.Forms.DockStyle.Left;
-      this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label6.Location = new System.Drawing.Point(0, 0);
-      this.label6.Name = "label6";
-      this.label6.Size = new System.Drawing.Size(184, 17);
-      this.label6.TabIndex = 0;
-      this.label6.Text = "Add / Remove Locations";
-      this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.label5.AutoSize = true;
+      this.label5.Dock = System.Windows.Forms.DockStyle.Left;
+      this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label5.Location = new System.Drawing.Point(0, 0);
+      this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+      this.label5.Name = "label5";
+      this.label5.Size = new System.Drawing.Size(258, 25);
+      this.label5.TabIndex = 0;
+      this.label5.Text = "Add / Remove Tag Types";
+      this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // tbLocation
+      // 
+      this.tbLocation.Controls.Add(this.grdLocation);
+      this.tbLocation.Controls.Add(this.panel3);
+      this.tbLocation.Location = new System.Drawing.Point(4, 29);
+      this.tbLocation.Name = "tbLocation";
+      this.tbLocation.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+      this.tbLocation.Size = new System.Drawing.Size(842, 555);
+      this.tbLocation.TabIndex = 2;
+      this.tbLocation.Text = "Locations";
+      this.tbLocation.UseVisualStyleBackColor = true;
       // 
       // grdLocation
       // 
@@ -614,17 +480,16 @@
       appearance35.BackColor = System.Drawing.SystemColors.Window;
       appearance35.BorderColor = System.Drawing.Color.Silver;
       this.grdLocation.DisplayLayout.Override.RowAppearance = appearance35;
-      this.grdLocation.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+      this.grdLocation.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.True;
       appearance36.BackColor = System.Drawing.SystemColors.ControlLight;
       this.grdLocation.DisplayLayout.Override.TemplateAddRowAppearance = appearance36;
       this.grdLocation.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
       this.grdLocation.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
       this.grdLocation.Dock = System.Windows.Forms.DockStyle.Fill;
       this.grdLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.grdLocation.Location = new System.Drawing.Point(2, 28);
-      this.grdLocation.Margin = new System.Windows.Forms.Padding(2);
+      this.grdLocation.Location = new System.Drawing.Point(3, 43);
       this.grdLocation.Name = "grdLocation";
-      this.grdLocation.Size = new System.Drawing.Size(555, 326);
+      this.grdLocation.Size = new System.Drawing.Size(836, 509);
       this.grdLocation.TabIndex = 4;
       this.grdLocation.Text = "Locations";
       this.grdLocation.AfterRowsDeleted += new System.EventHandler(this.grdLocation_AfterRowsDeleted);
@@ -632,32 +497,164 @@
       this.grdLocation.AfterRowUpdate += new Infragistics.Win.UltraWinGrid.RowEventHandler(this.grdLocation_AfterRowUpdate);
       this.grdLocation.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grdLocation_KeyDown);
       // 
+      // panel3
+      // 
+      this.panel3.Controls.Add(this.lnImportLoc);
+      this.panel3.Controls.Add(this.lnExportLoc);
+      this.panel3.Controls.Add(this.label6);
+      this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+      this.panel3.Location = new System.Drawing.Point(3, 3);
+      this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+      this.panel3.Name = "panel3";
+      this.panel3.Size = new System.Drawing.Size(836, 40);
+      this.panel3.TabIndex = 3;
+      // 
+      // lnImportLoc
+      // 
+      this.lnImportLoc.AutoSize = true;
+      this.lnImportLoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.lnImportLoc.Dock = System.Windows.Forms.DockStyle.Right;
+      this.lnImportLoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lnImportLoc.Location = new System.Drawing.Point(674, 0);
+      this.lnImportLoc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+      this.lnImportLoc.Name = "lnImportLoc";
+      this.lnImportLoc.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+      this.lnImportLoc.Size = new System.Drawing.Size(80, 33);
+      this.lnImportLoc.TabIndex = 2;
+      this.lnImportLoc.TabStop = true;
+      this.lnImportLoc.Text = "Import";
+      this.lnImportLoc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // lnExportLoc
+      // 
+      this.lnExportLoc.AutoSize = true;
+      this.lnExportLoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.lnExportLoc.Dock = System.Windows.Forms.DockStyle.Right;
+      this.lnExportLoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lnExportLoc.Location = new System.Drawing.Point(754, 0);
+      this.lnExportLoc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+      this.lnExportLoc.Name = "lnExportLoc";
+      this.lnExportLoc.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+      this.lnExportLoc.Size = new System.Drawing.Size(82, 33);
+      this.lnExportLoc.TabIndex = 1;
+      this.lnExportLoc.TabStop = true;
+      this.lnExportLoc.Text = "Export";
+      this.lnExportLoc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // label6
+      // 
+      this.label6.AutoSize = true;
+      this.label6.Dock = System.Windows.Forms.DockStyle.Left;
+      this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label6.Location = new System.Drawing.Point(0, 0);
+      this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+      this.label6.Name = "label6";
+      this.label6.Size = new System.Drawing.Size(247, 25);
+      this.label6.TabIndex = 0;
+      this.label6.Text = "Add / Remove Locations";
+      this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // tbSettings
+      // 
+      this.tbSettings.Controls.Add(this.btnInit);
+      this.tbSettings.Controls.Add(this.btnSave);
+      this.tbSettings.Controls.Add(this.label3);
+      this.tbSettings.Controls.Add(this.label2);
+      this.tbSettings.Controls.Add(this.label1);
+      this.tbSettings.Controls.Add(this.txtDBName);
+      this.tbSettings.Location = new System.Drawing.Point(4, 29);
+      this.tbSettings.Name = "tbSettings";
+      this.tbSettings.Size = new System.Drawing.Size(842, 555);
+      this.tbSettings.TabIndex = 3;
+      this.tbSettings.Text = "System Settings";
+      this.tbSettings.UseVisualStyleBackColor = true;
+      // 
+      // btnInit
+      // 
+      this.btnInit.Location = new System.Drawing.Point(10, 306);
+      this.btnInit.Name = "btnInit";
+      this.btnInit.Size = new System.Drawing.Size(105, 52);
+      this.btnInit.TabIndex = 5;
+      this.btnInit.Text = "Initialize DB";
+      this.btnInit.UseVisualStyleBackColor = true;
+      this.btnInit.Click += new System.EventHandler(this.btnInit_Click);
+      // 
+      // btnSave
+      // 
+      this.btnSave.Location = new System.Drawing.Point(218, 306);
+      this.btnSave.Name = "btnSave";
+      this.btnSave.Size = new System.Drawing.Size(105, 52);
+      this.btnSave.TabIndex = 4;
+      this.btnSave.Text = "Save Settings";
+      this.btnSave.UseVisualStyleBackColor = true;
+      this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+      // 
+      // label3
+      // 
+      this.label3.AutoSize = true;
+      this.label3.Location = new System.Drawing.Point(4, 123);
+      this.label3.Name = "label3";
+      this.label3.Size = new System.Drawing.Size(129, 20);
+      this.label3.TabIndex = 3;
+      this.label3.Text = "Database Name:";
+      // 
+      // label2
+      // 
+      this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label2.ForeColor = System.Drawing.Color.Red;
+      this.label2.Location = new System.Drawing.Point(3, 52);
+      this.label2.Name = "label2";
+      this.label2.Size = new System.Drawing.Size(837, 29);
+      this.label2.TabIndex = 2;
+      this.label2.Text = "WARNING: MODIFYING THESE SETTINGS INCORRECTLY COULD POTENTIALLY CAUSE DATA LOSS!";
+      this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // label1
+      // 
+      this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label1.Location = new System.Drawing.Point(3, 5);
+      this.label1.Name = "label1";
+      this.label1.Size = new System.Drawing.Size(837, 48);
+      this.label1.TabIndex = 1;
+      this.label1.Text = "System Settings";
+      this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // txtDBName
+      // 
+      this.txtDBName.Location = new System.Drawing.Point(140, 120);
+      this.txtDBName.Name = "txtDBName";
+      this.txtDBName.Size = new System.Drawing.Size(184, 26);
+      this.txtDBName.TabIndex = 0;
+      // 
       // frmSetup
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(583, 415);
+      this.ClientSize = new System.Drawing.Size(874, 638);
       this.Controls.Add(this.tabControl1);
       this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-      this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.Name = "frmSetup";
       this.Text = "System Setup";
       this.Load += new System.EventHandler(this.frmSetup_Load);
       this.tabControl1.ResumeLayout(false);
       this.tbItems.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.grdItems)).EndInit();
-      this.tbSizes.ResumeLayout(false);
-      this.tbLocation.ResumeLayout(false);
-      this.tbSettings.ResumeLayout(false);
-      this.tbSettings.PerformLayout();
       this.panel1.ResumeLayout(false);
       this.panel1.PerformLayout();
+      this.tbSizes.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.grdSize)).EndInit();
       this.panel2.ResumeLayout(false);
       this.panel2.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.grdSize)).EndInit();
+      this.tbLocation.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.grdLocation)).EndInit();
       this.panel3.ResumeLayout(false);
       this.panel3.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.grdLocation)).EndInit();
+      this.tbSettings.ResumeLayout(false);
+      this.tbSettings.PerformLayout();
       this.ResumeLayout(false);
 
     }
