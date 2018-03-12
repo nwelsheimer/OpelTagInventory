@@ -29,8 +29,17 @@ namespace OpelTagInventory
       //Creates any tables that don't already exist
       functions.createDB();
       loadGrid();
+      buildGrid();
+      addFilterColumn();
     }
 
+    private void frmMain_Load(object sender, EventArgs e)
+    {
+      grdItems.DrawFilter = new noIconFilter();
+      txtSearchItems.Focus();
+    }
+
+    #region grid building
     private void loadBindingTables()
     {
       items = functions.getData("select id, (mother || \" \" || baby) as itemName from item").Tables[0];
@@ -44,8 +53,17 @@ namespace OpelTagInventory
 
       inventory = functions.getData(inventoryQuery);
       grdItems.DataSource = inventory.Tables[0];
+    }
 
-      buildGrid();
+    private void addFilterColumn()
+    {
+      grdItems.AfterRowUpdate -= new RowEventHandler(grdItems_AfterRowUpdate);
+      foreach (UltraGridRow r in grdItems.Rows)
+      {
+        r.Cells["itemKey"].Value = r.Cells["itemId"].Text + " " + r.Cells["sizeId"].Text;
+        r.Update();
+      }
+      grdItems.AfterRowUpdate += new RowEventHandler(grdItems_AfterRowUpdate);
     }
 
     private void buildGrid()
@@ -72,6 +90,42 @@ namespace OpelTagInventory
       grdItems.DisplayLayout.Bands[0].Columns["itemId"].CellActivation = Infragistics.Win.UltraWinGrid.Activation.NoEdit;
       grdItems.DisplayLayout.Bands[0].Columns["sizeId"].CellActivation = Infragistics.Win.UltraWinGrid.Activation.NoEdit;
       grdItems.DisplayLayout.Bands[0].Columns["locId"].CellActivation = Infragistics.Win.UltraWinGrid.Activation.NoEdit;
+      //Add filter column
+      grdItems.DisplayLayout.Bands[0].Columns.Add("itemKey");
+      grdItems.DisplayLayout.Bands[0].Columns["itemKey"].Hidden = true;
+      grdItems.DisplayLayout.Bands[0].Columns["itemKey"].CellActivation = Activation.Disabled;
+    }
+
+    private void grdItems_InitializeTemplateAddRow(object sender, Infragistics.Win.UltraWinGrid.InitializeTemplateAddRowEventArgs e)
+    {
+      foreach (UltraGridCell c in e.TemplateAddRow.Cells)
+      {
+        c.IgnoreRowColActivation = true;
+        c.Activation = Activation.AllowEdit;
+      }
+      
+    }
+    #endregion
+    #region search box events
+    private void txtSearchItems_TextChanged(object sender, EventArgs e)
+    {
+        string search = "*" + txtSearchItems.Text.Replace(' ','*') + "*";
+        grdItems.DisplayLayout.Bands[0].ColumnFilters["itemKey"].FilterConditions.Clear();
+        grdItems.DisplayLayout.Bands[0].ColumnFilters["itemKey"].FilterConditions.Add(FilterComparisionOperator.Like, search);
+    }
+
+    private void txtSearchBins_TextChanged(object sender, EventArgs e)
+    {
+      string search = "*" + txtSearchBins.Text.Replace(' ', '*') + "*";
+      grdItems.DisplayLayout.Bands[0].ColumnFilters["locId"].FilterConditions.Clear();
+      grdItems.DisplayLayout.Bands[0].ColumnFilters["locId"].FilterConditions.Add(FilterComparisionOperator.Like, search);
+    }
+    #endregion
+    #region button pushing
+    private void grdItems_KeyDown(object sender, KeyEventArgs e)
+    {
+      
+      functions.GridNavigation(grdItems, e);
     }
 
     private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -81,44 +135,62 @@ namespace OpelTagInventory
 
     private void setupToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      string pin = Microsoft.VisualBasic.Interaction.InputBox("Please enter admin PIN to continue. 9548", "Secure Area", "");
-      if (pin == "9548")
+      if (functions.promptForPin())
       {
         frmSetup f = new frmSetup();
         f.ShowDialog();
         loadGrid();
-      } else
+      }
+      else
       {
         MessageBox.Show("Invalid PIN number. Please contact your supervisor for assitance with this area.");
       }
     }
-
-    private void grdItems_AfterRowInsert(object sender, Infragistics.Win.UltraWinGrid.RowEventArgs e)
+    #endregion
+    #region updates
+    private void grdItems_AfterRowUpdate(object sender, RowEventArgs e)
     {
       functions.updateData(inventory.Tables[0], inventoryQuery);
+      loadGrid();
+      addFilterColumn();
     }
 
     private void grdItems_AfterRowsDeleted(object sender, EventArgs e)
     {
       functions.updateData(inventory.Tables[0], inventoryQuery);
     }
+    #endregion
 
-    private void grdItems_InitializeTemplateAddRow(object sender, Infragistics.Win.UltraWinGrid.InitializeTemplateAddRowEventArgs e)
+    private void grdItems_BeforeRowsDeleted(object sender, BeforeRowsDeletedEventArgs e)
     {
-        foreach (UltraGridCell c in e.TemplateAddRow.Cells)
-      {
-        c.IgnoreRowColActivation = true;
-        c.Activation = Activation.AllowEdit;
-      }
+      if (!functions.promptForPin())
+        e.Cancel = true;
     }
 
-    private void txtSearchItems_KeyPress(object sender, KeyPressEventArgs e)
+    private void grdItems_BeforeRowUpdate(object sender, CancelableRowEventArgs e)
     {
-        if (txtSearchItems.TextLength > 0)
-      {
-        string search = txtSearchItems.Text;
-        inventory.Tables[0].DefaultView.RowFilter = "itemId='" + search + "'";
-      }
+      if (e.Row.Cells["itemId"].Value.ToString().Length == 0 || e.Row.Cells["sizeId"].Value.ToString().Length == 0
+        || e.Row.Cells["locId"].Value.ToString().Length == 0)
+        e.Cancel = true;
     }
   }
+  #region overrides
+  public class noIconFilter : IUIElementDrawFilter
+  {
+    bool IUIElementDrawFilter.DrawElement(DrawPhase drawPhase, ref UIElementDrawParams drawParams)
+    {
+      return true;
+    }
+
+    DrawPhase IUIElementDrawFilter.GetPhasesToFilter(ref UIElementDrawParams drawParams)
+    {
+      if (drawParams.Element is FilterDropDownButtonUIElement)
+      {
+        return DrawPhase.BeforeDrawElement;
+      }
+
+      return DrawPhase.None;
+    }
+  }
+  #endregion
 }

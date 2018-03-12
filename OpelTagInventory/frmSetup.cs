@@ -100,10 +100,16 @@ namespace OpelTagInventory
 
     private void btnInit_Click(object sender, EventArgs e)
     {
-      functions.initDB();
-      functions.runQuery("insert into inventory (itemId,sizeId,locId,qtyOnHand) values (1,1,1,200)");
-      MessageBox.Show("Database successfully created.");
-      loadGrid();
+      if (MessageBox.Show("WARNING: This function initializes the indicated database. This means ALL data will be lost!", "WARNING!!!", MessageBoxButtons.OKCancel) == DialogResult.OK)
+      {
+        if (functions.promptForPin())
+        {
+          functions.initDB();
+          //functions.runQuery("insert into inventory (itemId,sizeId,locId,qtyOnHand) values (1,1,1,200)"); Debugging
+          MessageBox.Show("Database successfully initialized.");
+          loadGrid();
+        }
+      }
     }
 
     private void grdItems_KeyDown(object sender, KeyEventArgs e)
@@ -122,11 +128,6 @@ namespace OpelTagInventory
     }
     #endregion
     #region Updates
-    private void grdItems_AfterRowInsert(object sender, Infragistics.Win.UltraWinGrid.RowEventArgs e)
-    {
-      functions.updateData(items.Tables[0], itemQuery);
-    }
-
     private void grdItems_AfterRowsDeleted(object sender, EventArgs e)
     {
       functions.updateData(items.Tables[0], itemQuery);
@@ -147,11 +148,6 @@ namespace OpelTagInventory
       functions.updateData(sizes.Tables[0], sizeQuery);
     }
 
-    private void grdSize_AfterRowInsert(object sender, Infragistics.Win.UltraWinGrid.RowEventArgs e)
-    {
-      functions.updateData(sizes.Tables[0], sizeQuery);
-    }
-
     private void grdLocation_AfterRowsDeleted(object sender, EventArgs e)
     {
       functions.updateData(locations.Tables[0], locationQuery);
@@ -162,10 +158,45 @@ namespace OpelTagInventory
       functions.updateData(locations.Tables[0], locationQuery);
     }
 
-    private void grdLocation_AfterRowInsert(object sender, Infragistics.Win.UltraWinGrid.RowEventArgs e)
+    #endregion
+    private void lnExportItems_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
+      functions.xlGridExport(items.Tables[0]);
+    }
+
+    private void lnImportItems_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DataTable import = functions.xlGridImport();
+      //import.Columns.Add("id", typeof(Int64)).SetOrdinal(0);
+      items.Tables[0].Merge(import);
+      functions.updateData(items.Tables[0], itemQuery);
+    }
+
+    private void lnExportSize_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      functions.xlGridExport(sizes.Tables[0]);
+    }
+
+    private void lnImportSize_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DataTable import = functions.xlGridImport();
+      //import.Columns.Add("id", typeof(Int64)).SetOrdinal(0);
+      import.Columns[0].DataType = typeof(Int64);
+      sizes.Tables[0].Merge(import);
+      functions.updateData(sizes.Tables[0], sizeQuery);
+    }
+
+    private void lnImportLoc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DataTable import = functions.xlGridImport();
+      //import.Columns.Add("id", typeof(Int64)).SetOrdinal(0);
+      locations.Tables[0].Merge(import);
       functions.updateData(locations.Tables[0], locationQuery);
     }
-    #endregion
+
+    private void lnExportLoc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      functions.xlGridExport(locations.Tables[0]);
+    }
   }
 }
